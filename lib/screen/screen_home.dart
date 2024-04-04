@@ -1,3 +1,8 @@
+import 'package:ecourse/screen/dhiwa/courses_list.dart';
+import 'package:ecourse/screen/screen_categories.dart';
+import 'package:ecourse/screen/screen_mentor.dart';
+import 'package:ecourse/screen/screen_popularcourse.dart';
+import 'package:ecourse/screen/screen_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_options.dart';
@@ -20,9 +25,9 @@ class _HomePageState extends State<HomePage> {
       "jumlah": "7830 std",
     },
     {
-      "title": "Graphic Design Advanced",
+      "title": "Advertisement Designing",
       "category": "Graphic Design",
-      "price": "28",
+      "price": "42",
       "rate": "4.2",
       "jumlah": "7830 std",
     },
@@ -35,7 +40,8 @@ class _HomePageState extends State<HomePage> {
     },
   ];
   final List<String> dataCard = [
-    "Graphic Design Advanced",
+    "All",
+    "Graphic Design",
     "3D Design",
     "Arts & Humanities",
   ];
@@ -49,7 +55,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Color(0xffF5F9FF),
       resizeToAvoidBottomInset: false,
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(34),
         child: Column(
           children: [
@@ -87,21 +93,30 @@ class _HomePageState extends State<HomePage> {
             ),
             TextFormField(
               decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                  hintText: 'Search',
-                  prefixIcon: Icon(
-                    Icons.search,
-                    size: 24,
-                  ),
-                  suffixIcon: Icon(
-                    CupertinoIcons.list_bullet,
-                    color: Colors.blue,
-                  )),
+                fillColor: Colors.white,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                hintText: 'Search',
+                prefixIcon: Icon(
+                  Icons.search,
+                  size: 24,
+                ),
+                suffixIcon: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PageSearch(),
+                          ));
+                    },
+                    child: Icon(
+                      CupertinoIcons.list_bullet,
+                      color: Colors.blue,
+                    )),
+              ),
             ),
             SizedBox(
               height: 30,
@@ -155,7 +170,13 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Spacer(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CategoryPage(),
+                        ));
+                  },
                   child: Text(
                     "SEE ALL >",
                     style: TextStyle(
@@ -212,7 +233,13 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Spacer(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PopularCourse(),
+                        ));
+                  },
                   child: Text(
                     "SEE ALL >",
                     style: TextStyle(
@@ -223,25 +250,35 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Expanded(
+            Container(
+              height: 45,
               child: ListView.builder(
                 itemCount: dataCard.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    color: Color(0xffE8F1FF),
-                    child: Container(
-                      height: 30,
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Center(
-                          child: Text(
-                            dataCard[index],
-                            style: TextStyle(
-                              fontSize: 16,
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CoursesList(),
+                          ));
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      color: Color(0xffE8F1FF),
+                      child: Container(
+                        height: 30,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Center(
+                            child: Text(
+                              dataCard[index],
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
                             ),
                           ),
                         ),
@@ -251,6 +288,177 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+            Container(
+              height: 245,
+              child: ListView.builder(
+                itemCount: datacard2.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    elevation: 2,
+                    color: Color(0xffFFFFFF),
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset("assets/images/card1.png"),
+                            Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment
+                                        .spaceBetween, // Untuk meletakkan teks kategori di sebelah kiri dan ikon di sebelah kanan
+                                    children: [
+                                      Text(
+                                        datacard2[index]["category"],
+                                        style: TextStyle(
+                                          color: Color(0xffFF6B00),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 165,
+                                      ),
+                                      Image.asset(
+                                        "assets/images/bookmark.png",
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment
+                                        .spaceBetween, // Untuk meletakkan teks kategori di sebelah kiri dan ikon di sebelah kanan
+                                    children: [
+                                      Text(
+                                        datacard2[index]["title"],
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 80,
+                                      ),
+                                      Text(""),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment
+                                        .spaceBetween, // Untuk meletakkan teks kategori di sebelah kiri dan ikon di sebelah kanan
+                                    children: [
+                                      Text(
+                                        '\$${datacard2[index]["price"]}',
+                                        style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        "|",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFCCB40),
+                                        size: 13,
+                                      ),
+                                      Text(
+                                        datacard2[index]["rate"],
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 11,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        "|",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        datacard2[index]["jumlah"],
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 11,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 75,
+                                      ),
+                                      Text(""),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Top Mentor",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Spacer(),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PageMentor(),
+                        ));
+                  },
+                  child: Text(
+                    "SEE ALL >",
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Image.asset("assets/images/mentor.png")
             // Expanded(
             //   child: ListView.builder(
             //     itemCount: datacard2.length,

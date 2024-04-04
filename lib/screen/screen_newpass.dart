@@ -1,3 +1,4 @@
+import 'package:ecourse/screen/screen_home.dart';
 import 'package:flutter/material.dart';
 
 class NewPass extends StatefulWidget {
@@ -120,7 +121,13 @@ class _NewPassState extends State<NewPass> {
                         showDialog(
                           context: context,
                           builder: (context) => MyPopup(),
-                        );
+                        ).then((_) {
+                          // Setelah dialog ditutup, pindah ke halaman beranda
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                        });
                       },
                       style: ElevatedButton.styleFrom(
                         padding:

@@ -67,7 +67,7 @@ class _FillProfilState extends State<FillProfil> {
                           borderRadius: BorderRadius.circular(50.0),
                           child: Image.asset(
                             'assets/images/profil.png',
-                            height: 100.0,
+                            height: 80.0,
                           ),
                         ),
                         Positioned(
@@ -84,14 +84,14 @@ class _FillProfilState extends State<FillProfil> {
                               },
                               child: Icon(
                                 Icons.edit,
-                                size: 20.0,
+                                size: 18.0,
                               ),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 15),
                     TextFormField(
                       decoration: InputDecoration(
                         fillColor: Colors.white,
@@ -215,7 +215,7 @@ class _FillProfilState extends State<FillProfil> {
                       ),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 25,
                     ),
                     ElevatedButton(
                       onPressed: () {
@@ -227,7 +227,7 @@ class _FillProfilState extends State<FillProfil> {
                       },
                       style: ElevatedButton.styleFrom(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 13),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 4),
                         primary: Color(0xff0961F5),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40),
@@ -262,7 +262,7 @@ class _FillProfilState extends State<FillProfil> {
                       ),
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 5,
                     ),
                   ],
                 ),

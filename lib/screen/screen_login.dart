@@ -43,7 +43,7 @@ class _PageLoginState extends State<PageLogin> {
                       'assets/images/LOGO.png',
                       height: 70,
                     ),
-                    SizedBox(height: 62),
+                    SizedBox(height: 32),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -162,7 +162,7 @@ class _PageLoginState extends State<PageLogin> {
                       },
                       style: ElevatedButton.styleFrom(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 4),
                         primary: Color(0xff0961F5),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40),
@@ -190,14 +190,14 @@ class _PageLoginState extends State<PageLogin> {
                             ),
                             child: Icon(
                               Icons.arrow_forward,
-                              color: Colors.black, // Warna ikon hitam
+                              color: Colors.blue, // Warna ikon hitam
                             ),
                           ),
                         ],
                       ),
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 23,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

@@ -43,7 +43,7 @@ class _PageRegisState extends State<PageRegis> {
                       'assets/images/LOGO.png',
                       height: 70,
                     ),
-                    SizedBox(height: 62),
+                    SizedBox(height: 32),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -145,7 +145,7 @@ class _PageRegisState extends State<PageRegis> {
                       },
                       style: ElevatedButton.styleFrom(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 18),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 4),
                         primary: Color(0xff0961F5),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40),
@@ -180,7 +180,7 @@ class _PageRegisState extends State<PageRegis> {
                       ),
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 23,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

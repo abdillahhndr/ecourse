@@ -41,6 +41,8 @@ dependencies:
   flutter_pin_code_fields: ^1.1.0
   intl: ^0.18.1
   carousel_slider: ^4.2.1
+  video_player: ^2.5.3
+  flutter_credit_card: ^4.0.1
 
 
 
@@ -83,6 +85,31 @@ flutter:
     - assets/images/notif.png
     - assets/images/OFFER.png
     - assets/images/emailfor.png
+    - assets/images/card1.png
+    - assets/images/bookmark.png
+    - assets/images/mentor.png
+    - assets/images/3d.png
+    - assets/images/gd.png
+    - assets/images/wd.png
+    - assets/images/seo.png
+    - assets/images/fa.png
+    - assets/images/pd.png
+    - assets/images/op.png
+    - assets/images/hr.png
+    - assets/images/filter.png
+    - assets/images/card2.png
+    - assets/images/prof.png
+    - assets/course.png
+    - assets/video1.png
+    - assets/black.png
+    - assets/bcode.png
+    - assets/BCA.png
+    - assets/receipt.png
+    - assets/facebook.png
+    - assets/ig.png
+    - assets/linkdin.png
+    - assets/gmail.png
+    - assets/profile/
 
   #   - images/a_dot_ham.jpeg
 
